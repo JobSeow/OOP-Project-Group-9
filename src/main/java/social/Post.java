@@ -1,8 +1,7 @@
-// package social;
+package social;
 
 // import social.Reply;
 import java.util.*;
-
 
 public class Post{
     private int likes;
