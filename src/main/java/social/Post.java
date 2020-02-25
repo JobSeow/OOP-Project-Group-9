@@ -19,7 +19,7 @@ public class Post{
             if (part.charAt(0) == '@'){
                 String usernameChunk = part.substring(1);
                 String username = usernameChunk.split("[^\\w]+")[0];
-                // need to check if username exists here
+                // need to check if username exists here!
                 taggedUsers.add(username);
                 splitMessages[i] = usernameChunk;
             }
@@ -44,7 +44,7 @@ public class Post{
     public Date getDate(){
         return datePosted;
     }
-    public List getTaggedUsers(){
+    public List<String> getTaggedUsers(){
         return taggedUsers;
     }
 
@@ -56,11 +56,4 @@ public class Post{
             
     //     }
     // }
-
-    public static void main(String[] args) {
-        String msg = "Until now, @evelyn, @adeline, @marilyn's laptops have bitten the dust. See, OOP is tough on laptops as well :/";
-        Post p = new Post(msg);
-        System.out.println(p.getMessage());
-        System.out.println(p.getDate());
-    }
 }
