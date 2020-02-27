@@ -39,6 +39,8 @@
             </plugin>
 
         </plugins>
+        <!-- <testSourceDirectory>src-test</testSourceDirectory> -->
+        <!-- <sourceDirectory>src</sourceDirectory> -->
     </build>
 
 </project>

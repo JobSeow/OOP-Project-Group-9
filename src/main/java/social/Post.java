@@ -32,21 +32,11 @@ public class Post{
     }
     
     // getters
-    public int getLikes(){
-        return likes;
-    }
-    public int getDislikes(){
-        return dislikes;
-    }
-    public String getMessage(){
-        return message;
-    }
-    public Date getDate(){
-        return datePosted;
-    }
-    public List<String> getTaggedUsers(){
-        return taggedUsers;
-    }
+    public int getLikes(){return likes;}
+    public int getDislikes(){return dislikes;}
+    public String getMessage(){return message;}
+    public Date getDate(){return datePosted;}
+    public List<String> getTaggedUsers(){return taggedUsers;}
 
     // public void addReply(Reply reply){
     //     replies.add(reply);
