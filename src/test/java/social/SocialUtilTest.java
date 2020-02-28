@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.*;
+
 public class SocialUtilTest {
     SocialUtil su = new SocialUtil();
     Member m1 = new Member("Job Seow", "jobseow");
@@ -27,9 +29,21 @@ public class SocialUtilTest {
 
     @Test
     public void addFriendsTest2(){
-        su.addFriends(m4, m3); // add lizhen and tiffany as friends
         su.addFriends(m1, m3); // add lizhen and job as friends
         boolean check3 = su.checkFriendship(m2,m3); // daryl and lizhen should not be friends
         assertEquals(false, check3);
+    }
+
+    @Test
+    public void broadcastMessageTest(){
+        su.addMember(m1);
+        su.addMember(m3);
+        su.addMember(m4);
+        su.addFriends(m1, m3); // add lizhen and job as friends
+        Post p = new Post("I love object oriented programming! @jobseow @tiffanytan",m4); // this tagged message should appear on job and tiffany posts
+        su.broadcastMessage(p);
+        List<Post> jobPosts = m1.getPostList();
+        // List<Post> tiffPosts = m4.getPostList();
+        assertEquals(jobPosts.size() , 1);
     }
 }

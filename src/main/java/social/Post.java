@@ -8,11 +8,12 @@ public class Post{
     private int dislikes;
     private String message;
     private List<String> taggedUsers = new ArrayList<String>();
+    private Member poster;
     // private List<Reply> replies = new ArrayList<Reply>();
     private Date datePosted;
 
     // constructor
-    public Post(String message){
+    public Post(String message, Member poster){
         String[] splitMessages = message.split(" ");
         for (int i = 0; i < splitMessages.length; i++){
             String part = splitMessages[i];
@@ -21,14 +22,14 @@ public class Post{
                 String username = usernameChunk.split("[^\\w]+")[0];
                 // need to check if username exists here!
                 taggedUsers.add(username);
+                taggedUsers.add(poster.getUsername());
                 splitMessages[i] = usernameChunk;
             }
         }
         String finalMessage = String.join(" ", splitMessages);
+        this.poster = poster;
         this.message = finalMessage;
         this.datePosted = new Date();
-        // broadcast this message to all taggedusers.
-        // broadcastMessage();
     }
     
     // getters
@@ -41,9 +42,5 @@ public class Post{
     // public void addReply(Reply reply){
     //     replies.add(reply);
     // }
-    // public void broadcastMessage(){
-    //     for (String user : taggedUsers){
-            
-    //     }
-    // }
+    
 }

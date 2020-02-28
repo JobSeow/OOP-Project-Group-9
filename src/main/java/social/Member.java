@@ -6,7 +6,7 @@ public class Member{
     private String fullName;
     private String rank;
     private String username;
-    private List<Post> postList;
+    private List<Post> postList = new ArrayList<Post>();
     private List<Member> friendList = new ArrayList<Member>();
 
     public Member(String fullName, String username){
@@ -24,5 +24,11 @@ public class Member{
     //methods 
     public void addFriend(Member friend){
         friendList.add(friend);
+    }
+    public void addPost(Post post){
+        postList.add(post);
+        if (postList.size() > 5){
+            postList.remove(0);
+        }
     }
 }

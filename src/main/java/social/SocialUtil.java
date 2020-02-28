@@ -3,6 +3,7 @@ package social;
 import java.util.*;
 
 public class SocialUtil{
+    private List<Member> memberList = new ArrayList<Member>();
     public boolean checkFriendship(Member friend1, Member friend2){
         List<Member> friend1List = friend1.getFriendList();
         for (Member friend : friend1List){
@@ -21,4 +22,20 @@ public class SocialUtil{
             System.out.println("Already friends!");
         }
     }
+    public void broadcastMessage(Post post){
+        System.out.println(post.getMessage());
+        List<String> taggedUsers = post.getTaggedUsers();
+        for (String user : taggedUsers){
+            for (Member existingUser : memberList){
+                if (user.equals(existingUser.getUsername())){
+                    existingUser.addPost(post);
+                }
+            }
+        }
+    }
+    public void addMember(Member member){
+        memberList.add(member);
+        System.out.println(member.getUsername() + " added!");
+    }
+    public List<Member> getMemberList(){return memberList;}
 }
